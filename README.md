@@ -1,7 +1,7 @@
 
 # PhotonRedirect
 
-First release made by zephkek (https://github.com/Zephkek )and the second release is fully recoded by me
+First release made by zephkek (https://github.com/Zephkek ) and the second release is fully recoded by me
 
 PhotonRedirect is a BepInEx plugin that overrides Photon/PUN connection settings at runtime so you can redirect the game to a custom Photon server (useful for reviving games that rely on live Photon servers).
 
