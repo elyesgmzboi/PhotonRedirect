@@ -1,6 +1,3 @@
-Made by zephkek (https://github.com/Zephkek) in the first release and full release by me
-
-
 
 # PhotonRedirect
 
