@@ -5,6 +5,10 @@ Made by zephkek (https://github.com/Zephkek) in the first release and the second
 
 PhotonRedirect is a BepInEx plugin that overrides Photon/PUN connection settings at runtime so you can redirect the game to a custom Photon server (useful for reviving games that rely on live Photon servers).
 
+
+# Games Tested
+
+The Tabung, The Tabung Reborn (prototype v0.1.3 of The Tabung)
 ## Quick Start
 
 1. Build the project:
