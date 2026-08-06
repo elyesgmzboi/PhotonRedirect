@@ -1,4 +1,4 @@
-Made by zephkek (https://github.com/Zephkek) and tester/idea by me
+Made by zephkek (https://github.com/Zephkek) in the first release and full release by me
 
 
 
