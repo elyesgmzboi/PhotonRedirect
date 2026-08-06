@@ -1,67 +1,42 @@
-# PhotonRedirect Plugin - Summary
+<<<<<<< HEAD
+# PhotonRedirect
 
-## What Was Fixed
+Made by zephkek (https://github.com/Zephkek) — patched and maintained here.
 
-### 1. **Port Validation Consistency**
-   - **Issue**: The `ApplyOverridesNow()` method only checked if port > 0, but didn't validate the upper bound
-   - **Fix**: Added upper bound check (≤ 65535) to match the `TryLoadJsonConfig()` validation
-   - **Impact**: Prevents invalid port numbers from being set through BepInEx config
-   - **Locations Fixed**: 
-     - Line 167: `ApplyOverridesNow()` method
-     - Line 329: `BeforeConnectUsingSettings()` method
-
-## Project Structure
-
-```
-the photon redirect thing/
-├── PhotonRedirect.cs           # Main plugin code (FIXED)
-├── PhotonRedirect.csproj       # Project file for compilation
-├── build.bat                   # Batch script to build the plugin
-├── BUILD_INSTRUCTIONS.md       # Detailed build guide
-├── photon-config.json          # Configuration file (optional)
-└── lib/                        # Required DLLs go here
-    └── README.txt             # Instructions for DLL placement
-```
+PhotonRedirect is a BepInEx plugin that overrides Photon/PUN connection settings at runtime so you can redirect the game to a custom Photon server (useful for reviving games that rely on live Photon servers).
 
 ## Quick Start
 
-### Step 1: Gather Required DLLs
-Run `build.bat` - it will tell you exactly which DLLs are missing
+1. Build the project:
 
-### Step 2: Place DLLs in lib/ folder
-Copy these from your game:
-- From `BepInEx\core`: BepInEx.dll, 0Harmony.dll
-- From `<GameName>_Data\Managed`: Photon.Pun.dll, Photon.Realtime.dll, UnityEngine.dll, UnityEngine.CoreModule.dll
+```powershell
+.\build.bat
+```
 
-### Step 3: Compile
-Double-click `build.bat` or run: `dotnet build -c Release`
+2. Copy the compiled DLL to your game's `BepInEx\plugins` folder:
 
-### Step 4: Deploy
-Copy compiled DLL to: `<GameFolder>\BepInEx\plugins\PhotonRedirect\PhotonRedirect.dll`
+```
+<GameFolder>\BepInEx\plugins\PhotonRedirect\PhotonRedirect.dll
+```
 
-## Files Included
+3. (Optional) Provide a `photon-config.json` alongside the DLL or in the game's `StreamingAssets` or persistent data folder to pre-fill config values.
 
-- **PhotonRedirect.cs** - Main plugin source code
-- **PhotonRedirect.csproj** - .NET project configuration
-- **build.bat** - Automated build script
-- **photon-config.json** - Sample configuration file
-- **BUILD_INSTRUCTIONS.md** - Detailed step-by-step guide
+4. Start the game and check `BepInEx\LogOutput.log` for plugin messages.
 
-## Requirements
+## Project Layout
 
-- .NET SDK 6.0+ (download from https://dotnet.microsoft.com/download)
-- Your game with BepInEx 5.4+ already installed
-- Game installation folder for DLL extraction
+- `PhotonRedirect.cs` — main plugin source
+- `PhotonRedirect.csproj` — .NET project file
+- `build.bat` — build helper
+- `lib/` — required runtime DLLs copied from the target game
 
-## Configuration
-
-Edit `photon-config.json` to override Photon settings:
+## Configuration (photon-config.json example)
 
 ```json
 {
   "overridePhotonSettings": true,
   "appIdRealtime": "YOUR_APP_ID",
-  "appIdVoice": "YOUR_VOICE_APP_ID", 
+  "appIdVoice": "YOUR_VOICE_APP_ID",
   "appIdChat": "YOUR_CHAT_APP_ID",
   "fixedRegion": "us",
   "useNameServer": false,
@@ -70,10 +45,22 @@ Edit `photon-config.json` to override Photon settings:
 }
 ```
 
+## Requirements
+
+- .NET SDK (for building)
+- BepInEx 5.4+ installed in the target game
+- Copies of the game's runtime assemblies in `lib/` (see `BUILD_INSTRUCTIONS.md`)
+
 ## Support
 
-If compilation fails:
-1. Check that all DLLs are in the `lib` folder
-2. Verify .NET SDK is installed: `dotnet --version`
-3. Check BepInEx console for runtime errors
-4. Ensure BepInEx 5.4.23+ is installed in your game
+If build or runtime problems occur:
+
+1. Ensure the required DLLs are placed in `lib/` before building.
+2. Run `dotnet --version` to verify your SDK.
+3. Check `BepInEx\LogOutput.log` for errors when the game runs.
+4. If Harmony fails to patch, ensure the game’s PUN/Photon versions match the `lib` DLLs.
+
+## License
+
+This repository is licensed under the MIT License — see `LICENSE`.
+
