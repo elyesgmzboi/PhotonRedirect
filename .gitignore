@@ -1,0 +1,31 @@
+# Build outputs
+/bin/
+/obj/
+/Debug/
+/Release/
+
+# VS
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# BepInEx / game specific
+*.dll
+*.pdb
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Logs
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
