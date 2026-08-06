@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # PhotonRedirect
 
 Made by zephkek (https://github.com/Zephkek) — patched and maintained here.
