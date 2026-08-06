@@ -1,3 +1,6 @@
+Made by zephkek (https://github.com/Zephkek) and tester/idea by me
+
+
 
 # PhotonRedirect
 
